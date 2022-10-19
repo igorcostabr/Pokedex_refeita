@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.example.pokedex_refeita.R
+import br.com.example.pokedex_refeita.api.PokemonRepository
 import br.com.example.pokedex_refeita.domain.Pokemon
 import br.com.example.pokedex_refeita.domain.PokemonType
 
@@ -23,10 +24,10 @@ class MainActivity : AppCompatActivity() {
         )
         val pokemons = listOf(charmander, charmander, charmander, charmander)
 
+        val pokemonsApi = PokemonRepository.listPokemons()
+
         val layoutManager = LinearLayoutManager(this)
-
         recyclerView.layoutManager = layoutManager
-
         recyclerView.adapter = PokemonAdapter(pokemons)
     }
 }
